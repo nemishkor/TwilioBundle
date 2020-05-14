@@ -1,13 +1,14 @@
 twilio:
     account: '%env(TWILIO_ACCOUNT)%'
     auth_token: '%env(TWILIO_AUTH_TOKEN)%'
-    services:
-        -   friendly_name: 'Default TwilioBundle verification service'
-            code_length: 4
-            lookup_enabled: false
-            skip_sms_to_landlines: false
-            dtmf_input_required: false
-            tts_name: 'name'
-            psd2_enabled: false
-            do_not_share_warning_enabled: false
-            custom_code_enabled: true
+    verify:
+        services:
+            -   friendly_name: 'Default verification service'
+                code_length: 4
+                lookup_enabled: false
+                skip_sms_to_landlines: false
+                dtmf_input_required: false
+                tts_name: 'name'
+                psd2_enabled: false
+                do_not_share_warning_enabled: false
+                custom_code_enabled: true
