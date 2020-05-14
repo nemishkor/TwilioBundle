@@ -1,0 +1,29 @@
+{
+    "name": "nemishkor/twilio-bundle",
+    "description": "Bundle for Symfony5 to communicate with Twilio API",
+    "type": "symfony-bundle",
+    "version": "0.1.0",
+    "require": {
+        "php": "^7.2.0",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/http-client": "^5.0",
+        "twilio/sdk": "^6.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitalii Koreniev",
+            "email": "nemish94@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nemishkor\\TwilioBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nemishkor\\TwilioBundle\\Tests\\": "tests"
+        }
+    }
+}
