@@ -4,7 +4,7 @@
     "type": "symfony-bundle",
     "version": "0.1.0",
     "require": {
-        "php": "^7.2.0",
+        "php": "^7.2.0||^8.0",
         "symfony/framework-bundle": "^5.0",
         "symfony/http-client": "^5.0",
         "twilio/sdk": "^6.4",
