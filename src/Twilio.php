@@ -12,7 +12,9 @@ namespace Nemishkor\TwilioBundle;
 
 use Exception;
 use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
+use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
+use Twilio\Rest\Verify\V2\Service\VerificationCheckInstance;
 use Twilio\Rest\Verify\V2\Service\VerificationInstance;
 use Twilio\Rest\Verify\V2\ServiceInstance as VerifyService;
 use UnexpectedValueException;
@@ -172,6 +174,25 @@ final class Twilio {
             ->services($service === null ? $this->getFirstService()->sid : $this->getVerifyService($service)->sid)
             ->verifications
             ->create($to, $channel, $options);
+    }
+
+    /**
+     * @param string $code
+     * @param string $number
+     * @param array $options
+     * @param string|null $service - friendly name or sid
+     * @throws TwilioException
+     */
+    public function checkVerify(
+        string $code,
+        string $number,
+        array $options = [],
+        ?string $service = null
+    ): VerificationCheckInstance {
+        return $this->client->verify->v2
+            ->services($service === null ? $this->getFirstService()->sid : $this->getVerifyService($service)->sid)
+            ->verificationChecks
+            ->create($code, array_merge($options, ["to" => $number]));
     }
 
 }
